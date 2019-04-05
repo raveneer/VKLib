@@ -1,0 +1,5 @@
+C:\UnityProject\VKLib\VKLib\bin\Release\VKLib.dll
+C:\UnityProject\VKLib\VKLib\bin\Release\VKLib.pdb
+C:\UnityProject\VKLib\VKLib\obj\Release\VKLib.csproj.CoreCompileInputs.cache
+C:\UnityProject\VKLib\VKLib\obj\Release\VKLib.dll
+C:\UnityProject\VKLib\VKLib\obj\Release\VKLib.pdb

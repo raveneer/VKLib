@@ -1,0 +1,6 @@
+C:\UnityProject\VKLib\VKLib\bin\Debug\VKLib.dll
+C:\UnityProject\VKLib\VKLib\bin\Debug\VKLib.pdb
+C:\UnityProject\VKLib\VKLib\obj\Debug\VKLib.csprojAssemblyReference.cache
+C:\UnityProject\VKLib\VKLib\obj\Debug\VKLib.csproj.CoreCompileInputs.cache
+C:\UnityProject\VKLib\VKLib\obj\Debug\VKLib.dll
+C:\UnityProject\VKLib\VKLib\obj\Debug\VKLib.pdb
