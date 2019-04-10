@@ -26,6 +26,14 @@ namespace VKLib.NativeExtension
             return array.Length == 0;
         }
 
+        /// <summary>
+        /// 2차원 배열에서 주어진 좌표가 맵 안에 존재하는지 체크한다.
+        /// </summary>
+        public static bool IsInMap<T>(this T[,] mapData, int x, int y)
+        {
+            return x.IsInRange(0, mapData.GetLength(0) - 1) && y.IsInRange(0, mapData.GetLength(1) - 1);
+        }
+
         public static void Add<T>(this ICollection<T>[,] array, int index1,
                                   int index2, T value)
         {
