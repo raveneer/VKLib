@@ -4,7 +4,7 @@ using VKLib.NativeExtension;
 namespace UnitTestProject
 {
     [TestFixture]
-    public class Test_ArrayExtension
+    public class TestArrayExtension
     {
         [Test]
         public void Test_IsEmpty()

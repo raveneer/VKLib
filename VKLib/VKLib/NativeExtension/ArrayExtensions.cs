@@ -1,14 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace VKLib.NativeExtension
 {
     public static class ArrayExtensions
     {
         /// <summary>
-        /// for 등에서 반복을 위해 lengh -1 등을 하는 것을 간단히 표현.
-        /// 빈 배열의 경우에는 에러.
+        ///     for 등에서 반복을 위해 lengh -1 등을 하는 것을 간단히 표현.
+        ///     빈 배열의 경우에는 에러.
         /// </summary>
         public static int LastIndex<T>(this T[] array)
         {
@@ -20,7 +19,7 @@ namespace VKLib.NativeExtension
         }
 
         /// <summary>
-        /// 배열 길이가 0인지 체크. array.Length == 0; 의 축약형
+        ///     배열 길이가 0인지 체크. array.Length == 0; 의 축약형
         /// </summary>
         public static bool IsEmpty<T>(this T[] array)
         {
@@ -30,7 +29,7 @@ namespace VKLib.NativeExtension
         public static void Add<T>(this ICollection<T>[,] array, int index1,
                                   int index2, T value)
         {
-            ICollection<T> existingCollection = array[index1, index2];
+            var existingCollection = array[index1, index2];
             if (existingCollection != null)
             {
                 existingCollection.Add(value);
@@ -55,29 +54,23 @@ namespace VKLib.NativeExtension
 
         public static void SetAllValue<T>(this T[,] array, T value)
         {
-            for (int x = 0; x < array.GetLength(0); x++)
+            for (var x = 0; x < array.GetLength(0); x++)
             {
-                for (int y = 0; y < array.GetLength(1); y++)
-                {
-                    array[x, y] = value;
-                }
+                for (var y = 0; y < array.GetLength(1); y++) array[x, y] = value;
             }
         }
 
         public static void SetAllValue<T>(this T[] array, T value)
         {
-            for (int x = 0; x < array.Length; x++)
-            {
-                array[x] = value;
-            }
+            for (var x = 0; x < array.Length; x++) array[x] = value;
         }
 
         /// <summary>
-        /// 배열이 짝수개 배열인지 체크한다. length 를 쓰므로 빠름.
+        ///     배열이 짝수개 배열인지 체크한다. length 를 쓰므로 빠름.
         /// </summary>
         public static bool IsEvenElemCount<T>(this T[] array)
         {
-            return (array.Length - 1) % 2 == 0;
+            return (array.Length) % 2 == 0;
         }
     }
 }
