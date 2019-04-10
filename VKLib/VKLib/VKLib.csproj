@@ -43,11 +43,14 @@
   <ItemGroup>
     <Compile Include="NativeExtension\ArrayExtensions.cs" />
     <Compile Include="NativeExtension\EnumExtension.cs" />
+    <Compile Include="NativeExtension\ICollectionExtension.cs" />
     <Compile Include="NativeExtension\ICollectionExtensions.cs" />
+    <Compile Include="NativeExtension\IEnumerableExtension.cs" />
     <Compile Include="NativeExtension\IListExtensions.cs" />
     <Compile Include="NativeExtension\LinkedListExtensions.cs" />
     <Compile Include="NativeExtension\NumberExtensions.cs" />
     <Compile Include="NativeExtension\PredicateHelper.cs" />
+    <Compile Include="NativeExtension\RandomExtension.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="NativeExtension\VectorExtensitons.cs" />
   </ItemGroup>
