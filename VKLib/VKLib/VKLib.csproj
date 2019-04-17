@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IO\FolderHelper.cs" />
     <Compile Include="NativeExtension\ArrayExtensions.cs" />
     <Compile Include="NativeExtension\EnumExtension.cs" />
     <Compile Include="NativeExtension\ICollectionExtension.cs" />
