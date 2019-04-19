@@ -52,6 +52,7 @@
     <Compile Include="NativeExtension\NumberExtensions.cs" />
     <Compile Include="NativeExtension\PredicateHelper.cs" />
     <Compile Include="NativeExtension\RandomExtension.cs" />
+    <Compile Include="NativeExtension\StringExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="NativeExtension\VectorExtensitons.cs" />
   </ItemGroup>
