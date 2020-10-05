@@ -1,2 +1,0 @@
-C:\UnityProject\VKLib\VKLib\UnitTestProject\obj\Debug\UnitTestProject.csprojAssemblyReference.cache
-C:\UnityProject\VKLib\VKLib\UnitTestProject\obj\Debug\UnitTestProject.csproj.CoreCompileInputs.cache
