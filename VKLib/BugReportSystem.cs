@@ -1,6 +1,5 @@
 using System;
 using System.Runtime.Serialization;
-using PDC.UnityDefendancy;
 using Zenject;
 
 namespace VKLib
@@ -25,7 +24,8 @@ namespace VKLib
         private void GoToTitle()
         {
             _eventManager.Raise_PrepareSceneLoad();
-            _eventManager.Raise_LoadScene(SceneNames.Title);
+            //_eventManager.Raise_LoadScene(SceneNames.Title);
+            throw new NotImplementedException("프로젝트별로 맞는 타이틀로 보낼 것. 타이틀씬의 이름이 항상 같다거나...?");
         }
 
         private void ReportBugToAnalytics(TException tExcetption)

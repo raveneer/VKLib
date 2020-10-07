@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Globalization;
 using System.Linq;
-using PDC.Native;
 using UnityEngine;
 
 /// <summary>
@@ -16,10 +15,11 @@ public struct Coord : IEquatable<Coord>
     public static readonly Coord one = new Coord(1, 1);
     public int X { get; private set; }
     public int Y { get; private set; }
-    public Coord Up => new Coord(X, Y+1);
-    public Coord Down => new Coord(X, Y-1);
-    public Coord Left => new Coord(X-1, Y);
-    public Coord Right => new Coord(X+1, Y);
+    public Coord Up => new Coord(X, Y + 1);
+    public Coord Down => new Coord(X, Y - 1);
+    public Coord Left => new Coord(X - 1, Y);
+    public Coord Right => new Coord(X + 1, Y);
+
     public Coord(int x, int y)
     {
         X = x;
@@ -28,7 +28,7 @@ public struct Coord : IEquatable<Coord>
 
     public static Coord XOnlyCoord(int x)
     {
-        return new Coord(x,0);
+        return new Coord(x, 0);
     }
 
     /// <summary>
@@ -134,60 +134,60 @@ public struct Coord : IEquatable<Coord>
 
     public bool IsBeside(Coord other)
     {
-        return (this.Up.Equals(other) || this.Down.Equals(other) || this.Left.Equals( other) || this.Right.Equals(other));
+        return Up.Equals(other) || Down.Equals(other) || Left.Equals(other) || Right.Equals(other);
     }
 
     /// <summary>
-    /// 주어진 coord와의 방향을 구한다.
+    ///     주어진 coord와의 방향을 구한다.
     /// </summary>
     public EDirection GetDirectionTo(Coord to)
     {
         //오른쪽
-        if(to.X > this.X)
+        if (to.X > X)
         {
-            if(to.Y > this.Y)
+            if (to.Y > Y)
             {
                 return EDirection.NE;
             }
-            if(to.Y == this.Y)
+            if (to.Y == Y)
             {
                 return EDirection.E;
             }
-            if(to.Y < this.Y)
+            if (to.Y < Y)
             {
                 return EDirection.SE;
             }
         }
 
         //같은 x
-        if(to.X  == this.X)
+        if (to.X == X)
         {
-            if(to.Y > this.Y)
+            if (to.Y > Y)
             {
                 return EDirection.N;
             }
-            if(to.Y == this.Y)
+            if (to.Y == Y)
             {
                 return EDirection.Center;
             }
-            if(to.Y < this.Y)
+            if (to.Y < Y)
             {
                 return EDirection.S;
             }
         }
 
         //왼쪽
-        if(to.X  < this.X)
+        if (to.X < X)
         {
-            if(to.Y > this.Y)
+            if (to.Y > Y)
             {
                 return EDirection.NW;
             }
-            if(to.Y == this.Y)
+            if (to.Y == Y)
             {
                 return EDirection.W;
             }
-            if(to.Y < this.Y)
+            if (to.Y < Y)
             {
                 return EDirection.SW;
             }
@@ -196,7 +196,24 @@ public struct Coord : IEquatable<Coord>
         throw new Exception();
     }
 
-    
+    [Serializable]
+    //3*3 배열을 기준으로 할때, 다음과 같은 배열 모양이 된다. (좌하가 0,0)
+    //NW, N, NE
+    //W, Center, E
+    //SW, S, SE
+    public enum EDirection
+    {
+        Center
+      , N
+      , NE
+      , E
+      , SE
+      , S
+      , SW
+      , W
+      , NW
+    }
+
     public class CoordConverter : TypeConverter
     {
         public override bool CanConvertFrom(ITypeDescriptorContext context, Type sourceType)
@@ -221,10 +238,10 @@ public struct Coord : IEquatable<Coord>
 
         public override object ConvertFrom(ITypeDescriptorContext context, CultureInfo culture, object value)
         {
-            string text = value as string;
+            var text = value as string;
             if (text != null)
             {
-                return Coord.Parse(text);
+                return Parse(text);
             }
 
             return base.ConvertFrom(context, culture, value);
@@ -237,7 +254,7 @@ public struct Coord : IEquatable<Coord>
                 throw new ArgumentNullException("destination Type is null");
             }
 
-            Coord Coord = (Coord)value;
+            var Coord = (Coord) value;
             if (CanConvertTo(context, destinationType))
             {
                 return Coord.ToString();
