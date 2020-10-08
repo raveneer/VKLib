@@ -1,8 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using VKLib.Native;
 
-    /// <summary>
+/// <summary>
     /// hack : 좀 어거지지만, 세이브파일은 일단 10개의 슬롯만 가짐. 마지막 3개는 오토세이브 슬롯이고.
     /// </summary>
     [Serializable]

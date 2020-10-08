@@ -3,10 +3,10 @@ using System.Runtime.CompilerServices;
 using SoundManager;
 using UnityEngine;
 
-namespace VKLib
+namespace VKLib.Native
 {
     /// <summary>
-    ///     특정 게임에 관련하지 않는 공통 이벤트들
+    ///     특정 게임에 관련하지 않는  라이브러리 공통 이벤트들.
     /// </summary>
     public class EventManager
     {

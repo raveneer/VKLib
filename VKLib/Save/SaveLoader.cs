@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 using UnityEngine.SceneManagement;
+using VKLib.Native;
 using Zenject;
 
 namespace VKLib

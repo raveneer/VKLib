@@ -3,6 +3,7 @@ using System.Linq;
 using ShopWars.UnityDependency;
 using TMPro;
 using UnityEngine;
+using VKLib.Native;
 using Zenject;
 
 namespace VKLib.UI

@@ -2,7 +2,7 @@ using System;
 using System.Runtime.Serialization;
 using Zenject;
 
-namespace VKLib
+namespace VKLib.Native
 {
     public class BugReportSystem : IInitializable
     {

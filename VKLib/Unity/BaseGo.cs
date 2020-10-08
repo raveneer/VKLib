@@ -1,4 +1,5 @@
 using UnityEngine;
+using VKLib.Native;
 using Zenject;
 
 namespace VKLib

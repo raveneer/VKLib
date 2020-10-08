@@ -1,4 +1,4 @@
-namespace VKLib
+namespace VKLib.Native
 {
     public static class GameStaticState
     {

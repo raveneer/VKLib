@@ -4,6 +4,8 @@ using System.ComponentModel.Design;
 using System.Linq;
 using Zenject;
 
+namespace VKLib.Native
+{
     /// <summary>
     ///     젠젝트를 이용하는 제네릭 오브젝트 풀. IPooledObject을 구현하는 객체는 이 풀을 이용하여 타입별로 스폰/디스폰 가능하다.
     /// </summary>
@@ -93,3 +95,4 @@ using Zenject;
         /// </summary>
         void Reset();
     }
+}

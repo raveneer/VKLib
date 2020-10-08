@@ -2,6 +2,8 @@ using System;
 using System.Collections.Generic;
 using JetBrains.Annotations;
 
+namespace VKLib.Native
+{
     /// <summary>
     ///     유니티 의 디버그 기능을 시도하며, 불가시 시스템 디버그 기능을 시도하는 헬퍼 클래스.
     ///     이렇게 함으로서 NCrunch 의 테스트와 UnityTest 양쪽에서 구동할 수 있게 된다.
@@ -94,3 +96,4 @@ using JetBrains.Annotations;
             Assert(obj != null, log);
         }
     }
+}
