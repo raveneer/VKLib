@@ -1,16 +1,14 @@
 ﻿using System;
-using ShopWars.Native;
 using UnityEngine;
 using UnityEngine.Advertisements;
 using UnityEngine.SceneManagement;
-using VKLib;
 using VKLib.Native;
 using Zenject;
 
 public class AdManager : MonoBehaviour
 {
     [Inject] private EventManager _eventManager;
-    [Inject] private GameSetting _gameSetting;
+    [Inject] private IADPolicy _iadPolicy;
     private Action _adFailedAction;
     private Action _adFinishAction;
     private Action _adSkippedActon;
@@ -18,12 +16,21 @@ public class AdManager : MonoBehaviour
     private void Start()
     {
         Initialize();
-        _eventManager.SceneLoadAfterAdShow+= OnSceneLoadAfterAdShow;
+        _eventManager.SceneLoadAfterAdShow += OnSceneLoadAfterAdShow;
+    }
+
+    private void Initialize()
+    {
+    #if UNITY_ANDROID
+        Advertisement.Initialize(_iadPolicy.GoogleGameID);
+    #elif UNITY_IOS
+        Advertisement.Initialize(_iadPolicy.AppleGameID);
+    #endif
     }
 
     private void OnSceneLoadAfterAdShow()
     {
-        if (IsAdCondition())
+        if (_iadPolicy.IsConditionMet())
         {
             ShowAd(ReloadScene, ReloadScene, ReloadScene);
         }
@@ -31,41 +38,6 @@ public class AdManager : MonoBehaviour
         {
             Debug.LogWarning("Ad condition not met, cancel Ad show");
             ReloadScene();
-        }
-    }
-
-    //todo : 책임소재가 틀렸음. 다른데로 보낼 것.
-    private void ReloadScene()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-    }
-
-    private bool IsAdCondition()
-    {
-        return PlayerPrefs.GetFloat(PlayerPrefString.TotalPlayTimeSec) >= _gameSetting.NeededGamePlaySecForAdShow
-               || PlayerPrefs.GetInt(PlayerPrefString.TotalPlayGameCount) >= _gameSetting.NeededGamePlayCountForAdShow;
-    }
-
-    private void Initialize()
-    {
-    #if UNITY_ANDROID
-        Advertisement.Initialize(android_game_id);
-    #elif UNITY_IOS
-        Advertisement.Initialize(ios_game_id);
-    #endif
-    }
-
-    private void ShowAd(Action adFinished, Action adSkipped, Action adFailed)
-    {
-        _adFinishAction = adFinished;
-        _adSkippedActon = adSkipped;
-        _adFailedAction = adFailed;
-
-        if (Advertisement.IsReady(rewarded_video_id))
-        {
-            var options = new ShowOptions {resultCallback = HandleShowResult};
-
-            Advertisement.Show(rewarded_video_id, options);
         }
     }
 
@@ -104,7 +76,33 @@ public class AdManager : MonoBehaviour
         }
     }
 
-    private const string android_game_id = "3839745";
-    //private const string ios_game_id = "3839744";
-    private const string rewarded_video_id = "video";
+    //todo : 책임소재가 틀렸음. 다른데로 보낼 것.
+    private void ReloadScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    private void ShowAd(Action adFinished, Action adSkipped, Action adFailed)
+    {
+        _adFinishAction = adFinished;
+        _adSkippedActon = adSkipped;
+        _adFailedAction = adFailed;
+
+        if (Advertisement.IsReady(_iadPolicy.RewardVideoID))
+        {
+            var options = new ShowOptions {resultCallback = HandleShowResult};
+
+            Advertisement.Show(_iadPolicy.RewardVideoID, options);
+        }
+    }
+
+
+}
+
+public interface IADPolicy
+{
+    bool IsConditionMet();
+    string RewardVideoID { get; }
+    string GoogleGameID { get; }
+    string AppleGameID { get; }
 }
