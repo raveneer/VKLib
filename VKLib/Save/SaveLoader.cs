@@ -53,7 +53,6 @@ namespace VKLib
             }
         }
 
-        [Inject] private readonly PlayerData _playerData;
         public bool IsLastSaveFileExist => File.Exists(GetSaveFilePath("Save0"));
         private readonly IDTOContainer _dtoContainer;
         private readonly EventManager _eventManager;
