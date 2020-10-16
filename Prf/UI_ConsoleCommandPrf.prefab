@@ -175,7 +175,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &3092180882501780811
 RectTransform:
   m_ObjectHideFlags: 0
@@ -765,6 +765,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: UITextPRf_title
       objectReference: {fileID: 0}
+    - target: {fileID: 5672037490734602573, guid: 1c6454c2379c36c4e8c84a6f2b3fbf06,
+        type: 3}
+      propertyPath: m_Text
+      value: console
+      objectReference: {fileID: 0}
     - target: {fileID: 224579846272947772, guid: 1c6454c2379c36c4e8c84a6f2b3fbf06,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -870,11 +875,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 5672037490734602573, guid: 1c6454c2379c36c4e8c84a6f2b3fbf06,
-        type: 3}
-      propertyPath: m_Text
-      value: console
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1c6454c2379c36c4e8c84a6f2b3fbf06, type: 3}
 --- !u!224 &5800681494064272661 stripped
@@ -893,6 +893,26 @@ PrefabInstance:
     - target: {fileID: 1846199884974362, guid: 1c6454c2379c36c4e8c84a6f2b3fbf06, type: 3}
       propertyPath: m_Name
       value: UITextPRf_log
+      objectReference: {fileID: 0}
+    - target: {fileID: 5672037490734602573, guid: 1c6454c2379c36c4e8c84a6f2b3fbf06,
+        type: 3}
+      propertyPath: m_Text
+      value: log
+      objectReference: {fileID: 0}
+    - target: {fileID: 5672037490734602573, guid: 1c6454c2379c36c4e8c84a6f2b3fbf06,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 5672037490734602573, guid: 1c6454c2379c36c4e8c84a6f2b3fbf06,
+        type: 3}
+      propertyPath: m_FontData.m_MinSize
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5672037490734602573, guid: 1c6454c2379c36c4e8c84a6f2b3fbf06,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 224579846272947772, guid: 1c6454c2379c36c4e8c84a6f2b3fbf06,
         type: 3}
@@ -998,26 +1018,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5672037490734602573, guid: 1c6454c2379c36c4e8c84a6f2b3fbf06,
-        type: 3}
-      propertyPath: m_Text
-      value: log
-      objectReference: {fileID: 0}
-    - target: {fileID: 5672037490734602573, guid: 1c6454c2379c36c4e8c84a6f2b3fbf06,
-        type: 3}
-      propertyPath: m_FontData.m_FontSize
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 5672037490734602573, guid: 1c6454c2379c36c4e8c84a6f2b3fbf06,
-        type: 3}
-      propertyPath: m_FontData.m_MinSize
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5672037490734602573, guid: 1c6454c2379c36c4e8c84a6f2b3fbf06,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1671671279921933346, guid: 1c6454c2379c36c4e8c84a6f2b3fbf06,
         type: 3}
