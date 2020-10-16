@@ -15,9 +15,9 @@ namespace VKLib.UI
         public UIText LogText;
         public GameObject Panel;
         private int _commandIndex;
+        private readonly List<string> _lastCommand = new List<string>();
         private readonly int _logTextMaxLine = 5;
         private readonly List<string> _logTexts = new List<string>();
-        private readonly List<string> _lastCommand = new List<string>();
 
         private void Awake()
         {
@@ -25,33 +25,41 @@ namespace VKLib.UI
             _eventManager.ToggleDebugConsole += TogglePanel;
         }
 
+        private void TogglePanel()
+        {
+            if (GameStaticState.IsConsoleMode)
+            {
+                Close();
+            }
+            else
+            {
+                Opne();
+            }
+        }
+
         private void Start()
         {
             Close();
         }
 
-        private void Close()
-        {
-            GameStaticState.IsConsoleMode = true;
-            TogglePanel();
-        }
-
         private void Update()
         {
-            if (Input.GetKeyUp(KeyCode.BackQuote)) //hack : 백큐토 키가 인풋매니저에서 지정되지가 않음.. 유니티 자체 버그인듯. 그래서 우회함.
-            {
-                GameStaticState.IsConsoleMode = !GameStaticState.IsConsoleMode;
-                TogglePanel();
-                return;
-            }
-
-            //esc로 닫을 수 있다.
+        #if UNITY_EDITOR
+            //esc로 열고닫을 수 있다.
             if (Input.GetKeyUp(KeyCode.Escape))
             {
-                GameStaticState.IsConsoleMode = false;
                 TogglePanel();
                 return;
             }
+            
+        #else
+            //hack : 백큐토 키가 인풋매니저에서 지정되지가 않음.. 유니티 자체 버그인듯. 그래서 우회함.
+            if (Input.GetKeyUp(KeyCode.BackQuote)) 
+            {
+                TogglePanel();
+                return;
+            }
+        #endif
 
             //방향키 아래위를 이용해서 사용한 콘솔명령어를 쉽게 재사용 할 수 있다.
             if (GameStaticState.IsConsoleMode)
@@ -99,6 +107,12 @@ namespace VKLib.UI
             LogText.Text = result;
         }
 
+        private void Close()
+        {
+            GameStaticState.IsConsoleMode = false;
+            Panel.gameObject.SetActive(false);
+        }
+
         private void SetConsoleTextToBefore()
         {
             _commandIndex = Mathf.Max(0, _commandIndex - 1);
@@ -111,17 +125,12 @@ namespace VKLib.UI
             InputField.text = _lastCommand[_commandIndex];
         }
 
-        private void TogglePanel()
+        private void Opne()
         {
-            GameStaticState.IsConsoleMode = !GameStaticState.IsConsoleMode;
-            Panel.gameObject.SetActive(GameStaticState.IsConsoleMode);
-            
-            if (GameStaticState.IsConsoleMode)
-            {
-                InputField.Select();
-                InputField.ActivateInputField();
-            }
+            GameStaticState.IsConsoleMode = true;
+            Panel.gameObject.SetActive(true);
+            InputField.Select();
+            InputField.ActivateInputField();
         }
-
     }
 }
