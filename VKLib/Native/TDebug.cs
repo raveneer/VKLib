@@ -93,7 +93,7 @@ namespace VKLib.Native
 
         public static void NoNull(object obj, string log = "")
         {
-            Assert(obj != null, log);
+            Assert(obj != null, $"{obj.GetType().Name} is null!" + log);
         }
     }
 }
