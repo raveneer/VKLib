@@ -11,7 +11,7 @@ namespace VKLib.UI
         // Start is called before the first frame update
         private void Start()
         {
-            TDebug.NoNull(TargetGo);
+            TDebug.AssertNotNull(TargetGo, nameof(TargetGo));
             GetComponent<Button>().onClick.AddListener(() => TargetGo.SetActive(!TargetGo.activeSelf));
         }
 
