@@ -19,6 +19,7 @@ namespace VKLib.Network
         {
             Initialize();
             _eventManager.SceneLoadAfterAdShow += OnSceneLoadAfterAdShow;
+            _eventManager.ShowAd += ShowAd;
         }
 
         private void Initialize()
