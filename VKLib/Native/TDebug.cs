@@ -40,8 +40,8 @@ namespace VKLib.Native
             //todo : 팝업을 보여주고 웹로그로 남기는 쪽이 나을지도?
             try
             {
-                UnityEngine.Debug.LogError("assert error!");
-                AddQueueAtMaxSize("assert error!");
+                UnityEngine.Debug.LogError($"assert error! + {log}");
+                AddQueueAtMaxSize($"assert error! + {log}");
                 throw new Exception($"assert error! {log}");
             }
             //유닛테스트 동안에는 이걸 사용.
@@ -89,11 +89,6 @@ namespace VKLib.Native
                 System.Diagnostics.Debug.WriteLine($"Warning! : +{text}");
                 AddQueueAtMaxSize(text);
             }
-        }
-
-        public static void NoNull(object obj, string log = "")
-        {
-            Assert(obj != null, log);
         }
     }
 }
