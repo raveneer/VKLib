@@ -12,7 +12,7 @@ namespace VKLib.UI
     {
         [Inject] private EventManager _eventManager;
         public TMP_InputField InputField;
-        public UIText LogText;
+        public TextMeshProUGUI LogText;
         public GameObject Panel;
         private int _commandIndex;
         private readonly List<string> _lastCommand = new List<string>();
@@ -104,7 +104,7 @@ namespace VKLib.UI
             var result = "";
             foreach (var text in _logTexts) result += "\r\n" + text;
 
-            LogText.Text = result;
+            LogText.text = result;
         }
 
         private void Close()
