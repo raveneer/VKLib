@@ -15,16 +15,17 @@ namespace VKLib.Native
         public float B { get; set; }
         public float A { get; set; }
 
-        public static TColor Black => FromColor(Color.black);
-        public static TColor White => FromColor(Color.white);
-        public static TColor Red => FromColor(Color.red);
-        public static TColor Green => FromColor(Color.green);
-        public static TColor Blue => FromColor(Color.blue);
-        public static TColor Yellow => FromColor(Color.yellow);
-        public static TColor Cyan => FromColor(Color.cyan);
-        public static TColor Magenta => FromColor(Color.magenta);
-        public static TColor Grey => FromColor(Color.grey);
-        public static TColor Transparent => new TColor(1, 1, 1, 0);
+        public static TColor Black => FromUnityColor(Color.black);
+        public static TColor White => FromUnityColor(Color.white);
+        public static TColor Red => FromUnityColor(Color.red);
+        public static TColor Green => FromUnityColor(Color.green);
+        public static TColor Blue => FromUnityColor(Color.blue);
+        public static TColor Yellow => FromUnityColor(Color.yellow);
+        public static TColor Cyan => FromUnityColor(Color.cyan);
+        public static TColor Magenta => FromUnityColor(Color.magenta);
+        public static TColor Grey => FromUnityColor(Color.grey);
+        public static TColor Pink  => TColor.FromRBGColor(255,192,203, 255);
+        public static TColor Transparent => new TColor(255, 255, 255, 0);
 
         //적용이 제대로 안되나...?
         public static TColor RED8 => new TColor(224, 49, 49, 255);
@@ -35,6 +36,7 @@ namespace VKLib.Native
         public static TColor GREEN5 => new TColor(81, 207, 102, 255);
         public static TColor YELLOW8 => new TColor(240, 140, 0, 255);
         public static TColor YELLOW6 => new TColor(250, 176, 5, 255);
+        
 
         private static bool _randomColorsMade;
         private static readonly Dictionary<int, TColor> _randomColorDic = new Dictionary<int, TColor>();
@@ -47,12 +49,17 @@ namespace VKLib.Native
             A = a;
         }
 
+        public static  TColor FromRBGColor(int r, int g, int b, int a)
+        {
+            return new TColor(r/255f, g/255f, b/255f, a/255f);
+        }
+
         public Color ToUnityColor()
         {
             return new Color(R, G, B, A);
         }
 
-        public static TColor FromColor(Color color)
+        public static TColor FromUnityColor(Color color)
         {
             return new TColor(color.r, color.g, color.b, color.a);
         }
