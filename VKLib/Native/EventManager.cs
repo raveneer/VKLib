@@ -552,22 +552,13 @@ namespace VKLib.Native
         /// <summary>
         ///     게임의 오브젝트 위에 위로 올라가는 숫자를 출력
         /// </summary>
-        public event Action<string, Vector3> ShowFloatingText_Vector3;
+        public event Action<string, Vector3, Color, float> ShowFloatingText_Vector3;
 
-        public void Raise_ShowFloatingText_Vector3(string text, Vector3 worldPosition)
+        public void Raise_ShowFloatingText_Vector3(string text, Vector3 worldPosition, Color color, float ySpeed = 10f)
         {
-            ShowFloatingText_Vector3?.Invoke(text, worldPosition);
+            ShowFloatingText_Vector3?.Invoke(text, worldPosition, color, ySpeed);
         }
 
-        /// <summary>
-        ///     게임의 오브젝트 위에 위로 올라가는 숫자를 출력. vector3 대신 coord를 보내는 이유는 변환책임 (chunkQuery) 의존성을 피하고자
-        /// </summary>
-        public event Action<string, Coord> ShowFloatingText_Coord;
-
-        public void Raise_ShowFloatingText_Coord(string text, Coord worldCoordPosition)
-        {
-            ShowFloatingText_Coord?.Invoke(text, worldCoordPosition);
-        }
 
         /*/// <summary>
     ///     매우 중대한 경우에 출력하는 노티파티 메시지. 화면을 가림.

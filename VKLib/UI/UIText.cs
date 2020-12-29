@@ -1,6 +1,6 @@
 using System;
+using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace VKLib
 {
@@ -8,8 +8,8 @@ namespace VKLib
     [Serializable]
     public class UIText : MonoBehaviour
     {
-        public Color Color = Color.white;
-        public Text TmpUiText;
+        public TextMeshPro TmpUiText;
+        public Color Color { get; private set; } = Color.white;
 
         public string Text
         {
@@ -23,7 +23,7 @@ namespace VKLib
                 }
             }
         }
-        private Color _cachedColor;
+
         private string _cachedString = "";
 
         private void Awake()
@@ -32,11 +32,10 @@ namespace VKLib
 
         public void SetColor(Color color)
         {
-            if (_cachedColor != color)
+            if (Color != color)
             {
-                _cachedColor = color;
-                TmpUiText.color = color;
                 Color = color;
+                TmpUiText.color = color;
             }
         }
 
