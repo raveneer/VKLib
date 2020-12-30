@@ -1,7 +1,5 @@
 ﻿using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using VKLib;
 using VKLib.Native;
 using Zenject;
 
