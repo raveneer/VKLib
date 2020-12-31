@@ -305,22 +305,39 @@ namespace VKLib.Native
         }
 
         //save load
-        public event Action<int> SaveGame;
+        public event Action<int> SaveGameToSlot;
 
-        public virtual void Raise_SaveGame(int slotNumber)
+        public virtual void Raise_SaveGameToSlot(int slotNumber)
         {
             LoggingEventCall(new object[] {slotNumber});
-            SaveGame?.Invoke(slotNumber);
+            SaveGameToSlot?.Invoke(slotNumber);
         }
 
-        public event Action<int> LoadGame;
+        
 
-        public virtual void Raise_LoadGame(int slotNumber)
+        public event Action<int> LoadGameToSlot;
+
+        public virtual void Raise_LoadGameToSlot(int slotNumber)
         {
             LoggingEventCall(new object[] {slotNumber});
-            LoadGame?.Invoke(slotNumber);
+            LoadGameToSlot?.Invoke(slotNumber);
         }
 
+        public event Action SaveGame;
+
+        public void Notify_SaveGame()
+        {
+            SaveGame?.Invoke();
+        }
+
+        public event Action LoadGame;
+
+        public void Notify_LoadGame()
+        {
+            LoadGame?.Invoke();
+        }
+
+        
         /// <summary>
         ///     데이터 로드가 끝나서 객체 생성이 끝난 상태.
         /// </summary>
