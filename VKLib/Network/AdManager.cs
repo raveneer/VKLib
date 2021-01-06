@@ -24,11 +24,13 @@ namespace VKLib.Network
 
         private void Initialize()
         {
-        #if UNITY_ANDROID
+        #if UNITY_ANDROID || UNITY_EDITOR
             Advertisement.Initialize(_iadPolicy.GoogleGameID);
-        #elif UNITY_IOS
-        Advertisement.Initialize(_iadPolicy.AppleGameID);
-        #endif
+            Debug.Log("googleAdPolicy init");
+#elif UNITY_IOS
+            Advertisement.Initialize(_iadPolicy.AppleGameID);
+            Debug.Log("appleAdPolicy init");
+#endif
         }
 
         private void OnSceneLoadAfterAdShow()
@@ -96,6 +98,10 @@ namespace VKLib.Network
                 var options = new ShowOptions {resultCallback = HandleShowResult};
 
                 Advertisement.Show(_iadPolicy.RewardVideoID, options);
+            }
+            else
+            {
+                TDebug.LogWarning("준비된 광고가 없습니다!");
             }
         }
 
