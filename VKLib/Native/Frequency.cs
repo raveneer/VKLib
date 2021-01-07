@@ -33,5 +33,15 @@ namespace VKLib.Native
             }
             return default(T);
         }
+
+        public override string ToString()
+        {
+            var res = "";
+            foreach (var valueTuple in _frequents)
+            {
+                res += $"weight : {valueTuple.Item1}, {valueTuple.Item2.GetType()} ,";
+            }
+            return res;
+        }
     }
 }
