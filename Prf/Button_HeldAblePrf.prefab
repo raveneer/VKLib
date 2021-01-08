@@ -187,7 +187,7 @@ MonoBehaviour:
   m_text: Long push button
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 91dae6272aabb4c42a5c383d6ba48349, type: 2}
-  m_sharedMaterial: {fileID: 8070932497216158090, guid: 91dae6272aabb4c42a5c383d6ba48349,
+  m_sharedMaterial: {fileID: -4473772803597782770, guid: 91dae6272aabb4c42a5c383d6ba48349,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -212,7 +212,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24.15
+  m_fontSize: 22.35
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -390,4 +390,4 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   fillImage: {fileID: 4744976236941566084}
-  requiredHoldTime: 1
+  requiredHoldTime: 0.5

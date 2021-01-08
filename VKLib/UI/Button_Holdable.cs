@@ -17,7 +17,7 @@ namespace VKLib.VKLib.UI
         /// <summary>
         ///     홀드 상태가 되면, 이 시간마다 이벤트를 쏜다.
         /// </summary>
-        private readonly float contiueTermSec = 0.3f;
+        private readonly float contiueTermSec = 0.05f;
 
         [SerializeField]
         private Image fillImage;
