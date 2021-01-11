@@ -2,7 +2,7 @@ using System;
 using TMPro;
 using UnityEngine;
 
-namespace VKLib
+namespace VKLib.VKLib.UI
 {
     [ExecuteInEditMode]
     [Serializable]
