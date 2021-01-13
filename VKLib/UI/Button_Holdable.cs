@@ -10,10 +10,11 @@ namespace VKLib.VKLib.UI
     public class Button_Holdable : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     {
         public Action FireEvent;
-
+        public Button Button;
         public UnityEvent FireUnityEvent;
+        public Image BG;
         private float contiueRemainSec;
-
+        
         /// <summary>
         ///     홀드 상태가 되면, 이 시간마다 이벤트를 쏜다.
         /// </summary>
@@ -78,5 +79,18 @@ namespace VKLib.VKLib.UI
             pointerDownTimer = 0;
             fillImage.fillAmount = 0;
         }
+
+        public void SetPushable(bool isPushAble)
+        {
+            if (isPushAble)
+            {
+                BG.color = Color.white;
+            }
+            else
+            {
+                BG.color = Color.gray;
+            }
+        }
+
     }
 }

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4744976236294284610}
   - component: {fileID: 4744976236294284638}
   m_Layer: 5
-  m_Name: Button_HeldAblePrf
+  m_Name: Button_HoldAblePrf
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -186,9 +186,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Long push button
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 91dae6272aabb4c42a5c383d6ba48349, type: 2}
-  m_sharedMaterial: {fileID: -4473772803597782770, guid: 91dae6272aabb4c42a5c383d6ba48349,
-    type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -212,7 +211,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 22.35
+  m_fontSize: 21.3
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -386,8 +385,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c39addac2d2da804abc5a1eecd06a60e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Button: {fileID: 4744976236941566085}
   FireUnityEvent:
     m_PersistentCalls:
       m_Calls: []
+  BG: {fileID: 4744976236561136448}
   fillImage: {fileID: 4744976236941566084}
   requiredHoldTime: 0.5
