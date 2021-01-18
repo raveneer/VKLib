@@ -128,7 +128,7 @@ MonoBehaviour:
   TargetScene: IljinMain
   FillImage: {fileID: 7448145445577546173}
   TMP_loadInfo: {fileID: 6556462246430833327}
-  Panel: {fileID: 0}
+  Panel: {fileID: 1465815239687961227}
   IsAutoStartScene: 1
   IsAutoStartLoading: 0
 --- !u!1 &5321347192076958881

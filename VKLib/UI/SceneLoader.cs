@@ -3,6 +3,8 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using VKLib.Native;
+using Zenject;
 
 namespace VKLib.VKLib.UI
 {
@@ -12,6 +14,7 @@ namespace VKLib.VKLib.UI
     /// </summary>
     public class SceneLoader : MonoBehaviour
     {
+        [Inject] private EventManager _eventManager;
         public string TargetScene;
         public Image FillImage;
         public TextMeshProUGUI TMP_loadInfo;
@@ -28,12 +31,20 @@ namespace VKLib.VKLib.UI
 
         void Start()
         {
+            _eventManager.LoadScene += OnLoadScene;
+
             Panel.gameObject.SetActive(false);
 
             if (IsAutoStartLoading)
             {
                 StartLoadManually();
             }
+        }
+
+        private void OnLoadScene(string obj)
+        {
+            TargetScene = obj;
+            StartLoadManually();
         }
 
         //유니티에서 호출하도록.
