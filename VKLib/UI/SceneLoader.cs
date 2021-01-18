@@ -29,7 +29,7 @@ namespace VKLib.VKLib.UI
         public bool IsAutoStartLoading = false;
         private AsyncOperation _asyncOperation;
 
-        void Start()
+        void Awake()
         {
             _eventManager.LoadScene += OnLoadScene;
 
@@ -67,8 +67,10 @@ namespace VKLib.VKLib.UI
                 if (TMP_loadInfo != null)
                     TMP_loadInfo.text = "Loading... " + ((int)(_asyncOperation.progress * 100)).ToString() + "%";
 
-                yield return true;
+                yield return new WaitForSeconds(.1f);
             }
+
+            yield break;
         }
     }
 }
