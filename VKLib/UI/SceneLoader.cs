@@ -55,16 +55,17 @@ namespace VKLib.VKLib.UI
 
         private IEnumerator StartLoad(string strSceneName, bool isAutoStartScene)
         {
+            TDebug.Log($"SceneLoader start load : {strSceneName}");
             Panel.gameObject.SetActive(true);
             Debug.Assert(strSceneName != string.Empty);
             _asyncOperation = SceneManager.LoadSceneAsync(strSceneName);
             _asyncOperation.allowSceneActivation = isAutoStartScene;
-            while (_asyncOperation.progress < 0.9f)
+            while (_asyncOperation.progress < 1f)
             {
                 if (FillImage != null)
                     FillImage.fillAmount = _asyncOperation.progress;
                 if (TMP_loadInfo != null)
-                    TMP_loadInfo.text = "Loading... " + ((int)_asyncOperation.progress * 100).ToString() + "%";
+                    TMP_loadInfo.text = "Loading... " + ((int)(_asyncOperation.progress * 100)).ToString() + "%";
 
                 yield return true;
             }
