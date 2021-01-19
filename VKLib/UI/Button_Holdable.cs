@@ -1,4 +1,5 @@
 ﻿using System;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
@@ -14,6 +15,7 @@ namespace VKLib.VKLib.UI
         public UnityEvent FireUnityEvent;
         public Image BG;
         private float contiueRemainSec;
+        public TextMeshProUGUI ButtonText;
         
         /// <summary>
         ///     홀드 상태가 되면, 이 시간마다 이벤트를 쏜다.

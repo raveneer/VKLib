@@ -390,5 +390,6 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   BG: {fileID: 4744976236561136448}
+  ButtonText: {fileID: 4744976236781582216}
   fillImage: {fileID: 4744976236941566084}
   requiredHoldTime: 0.5
