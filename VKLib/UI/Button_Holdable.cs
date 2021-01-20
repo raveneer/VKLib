@@ -52,7 +52,7 @@ namespace VKLib.VKLib.UI
                     {
                         contiueRemainSec -= contiueTermSec;
                         FireEvent?.Invoke();
-                        TDebug.Log("LongLongClicks fire!");
+                        //TDebug.Log("LongLongClicks fire!");
                     }
                 }
             }
@@ -61,7 +61,7 @@ namespace VKLib.VKLib.UI
         public void OnPointerDown(PointerEventData eventData)
         {
             pointerDown = true;
-            Debug.Log("OnPointerDown");
+            //Debug.Log("OnPointerDown");
         }
 
         /// <summary>
@@ -72,7 +72,7 @@ namespace VKLib.VKLib.UI
             FireEvent?.Invoke();
 
             Reset();
-            Debug.Log("OnPointerUp");
+            //Debug.Log("OnPointerUp");
         }
 
         private void Reset()
