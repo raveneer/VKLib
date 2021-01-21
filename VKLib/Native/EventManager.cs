@@ -712,7 +712,7 @@ namespace VKLib.Native
 
         public event Action<string, string, object> SendUnityAnalyticsCustomEvent;
 
-        public void Raise_SendUnityAnalyticsCustomEvent(string eventName, string key, string value)
+        public void Raise_SendUnityAnalyticsCustomEvent(string eventName, string key, object value)
         {
             SendUnityAnalyticsCustomEvent?.Invoke(eventName, key, value);
         }
