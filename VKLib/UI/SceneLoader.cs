@@ -33,7 +33,7 @@ namespace VKLib.VKLib.UI
         {
             _eventManager.LoadScene += OnLoadScene;
 
-            Panel.gameObject.SetActive(false);
+            Panel?.gameObject.SetActive(false);
 
             if (IsAutoStartLoading)
             {
