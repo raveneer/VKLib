@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
-using VKLib.Native;
 
 namespace VKLib.VKLib.UI
 {
