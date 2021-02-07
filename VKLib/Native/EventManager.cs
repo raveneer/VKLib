@@ -73,6 +73,17 @@ namespace VKLib.Native
 
         #region SystemSetting - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+        public event Action WriteLogForBackupSaveData;
+
+        /// <summary>
+        /// 유저의 세이브데이터 복구를 위해서 현재의 세이브 데이터를 로그의 형태로 서버에 저장한다. 속도를 위해 유효성 검증은 하지 않음.
+        /// </summary>
+        public void Notify_WriteLogForBackupSaveData()
+        {
+            WriteLogForBackupSaveData?.Invoke();
+        }
+
+
         public event Action<float> SystemUIScaleChanged;
 
         public virtual void Raise_SystemUIScaleChanged(float newScale)
