@@ -25,18 +25,6 @@ namespace VKLib.UI
             _eventManager.ToggleDebugConsole += TogglePanel;
         }
 
-        private void TogglePanel()
-        {
-            if (GameStaticState.IsConsoleMode)
-            {
-                Close();
-            }
-            else
-            {
-                Opne();
-            }
-        }
-
         private void Start()
         {
             Close();
@@ -44,22 +32,22 @@ namespace VKLib.UI
 
         private void Update()
         {
-        #if UNITY_EDITOR
-            //esc로 열고닫을 수 있다.
-            if (Input.GetKeyUp(KeyCode.Escape))
+            //단축키로 열고 닫기는 이제 에디터에서만 지원된다.
+            if (Application.isEditor)
             {
-                TogglePanel();
-                return;
+                //esc로 열고닫을 수 있다.
+                if (Input.GetKeyUp(KeyCode.Escape))
+                {
+                    TogglePanel();
+                    return;
+                }
+
+                if (Input.GetKeyUp(KeyCode.BackQuote) && Application.isEditor)
+                {
+                    TogglePanel();
+                    return;
+                }
             }
-            
-        #else
-            //hack : 백큐토 키가 인풋매니저에서 지정되지가 않음.. 유니티 자체 버그인듯. 그래서 우회함.
-            if (Input.GetKeyUp(KeyCode.BackQuote)) 
-            {
-                TogglePanel();
-                return;
-            }
-        #endif
 
             //방향키 아래위를 이용해서 사용한 콘솔명령어를 쉽게 재사용 할 수 있다.
             if (GameStaticState.IsConsoleMode)
@@ -113,6 +101,14 @@ namespace VKLib.UI
             Panel.gameObject.SetActive(false);
         }
 
+        private void Opne()
+        {
+            GameStaticState.IsConsoleMode = true;
+            Panel.gameObject.SetActive(true);
+            InputField.Select();
+            InputField.ActivateInputField();
+        }
+
         private void SetConsoleTextToBefore()
         {
             _commandIndex = Mathf.Max(0, _commandIndex - 1);
@@ -125,12 +121,16 @@ namespace VKLib.UI
             InputField.text = _lastCommand[_commandIndex];
         }
 
-        private void Opne()
+        private void TogglePanel()
         {
-            GameStaticState.IsConsoleMode = true;
-            Panel.gameObject.SetActive(true);
-            InputField.Select();
-            InputField.ActivateInputField();
+            if (GameStaticState.IsConsoleMode)
+            {
+                Close();
+            }
+            else
+            {
+                Opne();
+            }
         }
     }
 }
