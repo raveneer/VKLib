@@ -655,6 +655,15 @@ namespace VKLib.Native
             return PlaySound?.Invoke(soundName, position, percent, pitch, volume);
         }
 
+        
+
+        public event Action<string, float> PlaySoundOneShot;
+
+        public void Notify_PlaySoundOneShot(string soundName, float volume = 1f)
+        {
+             PlaySoundOneShot?.Invoke(soundName, volume);
+        }
+
         public event Func<string, float, float, float, SmSound> PlaySoundUI;
 
         public SmSound Raise_PlaySoundUI(string soundName, float percent = 1, float pitch = 1, float volume = 1)
