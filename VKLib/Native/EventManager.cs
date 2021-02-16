@@ -886,11 +886,11 @@ namespace VKLib.Native
             SceneLoadAfterAdShow?.Invoke();
         }
 
-        public event Action<float> AdmobSmartBannerSizeChanged;
+        public event Action<float, float> AdmobSmartBannerSizeChanged;
 
-        public void Notify_AdmobSmartBannerSizeChanged(float height)
+        public void Notify_AdmobSmartBannerSizeChanged(float height, float gap)
         {
-            AdmobSmartBannerSizeChanged?.Invoke(height);
+            AdmobSmartBannerSizeChanged?.Invoke(height, gap);
         }
 
         #endregion

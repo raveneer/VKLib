@@ -18,15 +18,15 @@ namespace VKLib.VKLib.UI
             _eventManager.AdmobSmartBannerSizeChanged += OnAdmobSmartBannerSizeChanged;
         }
 
-        private void OnAdmobSmartBannerSizeChanged(float adHeight)
+        private void OnAdmobSmartBannerSizeChanged(float adHeight, float gap)
         {
             if (isTop)
             {
-                UnityRectHelper.SetRectTop(CanvasRect, adHeight);
+                UnityRectHelper.SetRectTop(CanvasRect, adHeight+gap);
             }
             else
             {
-                UnityRectHelper.SetRectBottom(CanvasRect, adHeight);
+                UnityRectHelper.SetRectBottom(CanvasRect, adHeight+gap);
             }
       
         }
