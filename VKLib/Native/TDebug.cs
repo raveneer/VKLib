@@ -14,10 +14,14 @@ namespace VKLib.Native
     {
         public static Queue<string> LogQueue = new Queue<string>();
 
-        private static readonly int _maxLogQueueSize = 5000;
+        public static Action<string> OnLog;
+
+        private static readonly int _maxLogQueueSize = 1000;
 
         public static void AddQueueAtMaxSize(string log)
         {
+            OnLog?.Invoke(log);
+
             if (LogQueue.Count >= _maxLogQueueSize)
             {
                 LogQueue.Dequeue();
