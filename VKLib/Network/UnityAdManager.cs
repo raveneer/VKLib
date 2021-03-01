@@ -7,7 +7,10 @@ using Zenject;
 
 namespace VKLib.Network
 {
-    public class AdManager : MonoBehaviour
+    /// <summary>
+    /// 유니티 광고를 처리하는 클래스. 애드몹도 같이 처리하면 좋겠으나
+    /// </summary>
+    public class UnityAdManager : MonoBehaviour
     {
         [Inject] private EventManager _eventManager;
         [Inject] private IADPolicy _iadPolicy;
@@ -25,7 +28,7 @@ namespace VKLib.Network
         private void Initialize()
         {
         #if UNITY_ANDROID || UNITY_EDITOR
-            Advertisement.Initialize(_iadPolicy.GoogleGameID);
+            Advertisement.Initialize(_iadPolicy.AndroidGameID);
             Debug.Log("googleAdPolicy init");
 #elif UNITY_IOS
             Advertisement.Initialize(_iadPolicy.AppleGameID);
@@ -112,7 +115,7 @@ namespace VKLib.Network
     {
         bool IsConditionMet();
         string RewardVideoID { get; }
-        string GoogleGameID { get; }
+        string AndroidGameID { get; }
         string AppleGameID { get; }
     }
 }
