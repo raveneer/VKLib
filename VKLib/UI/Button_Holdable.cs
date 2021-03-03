@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using VKLib.Native;
 
 namespace VKLib.VKLib.UI
 {
@@ -15,6 +16,7 @@ namespace VKLib.VKLib.UI
         public Image BG;
         private float contiueRemainSec;
         public TextMeshProUGUI ButtonText;
+        private EventManager _eventManager;
         
         /// <summary>
         ///     홀드 상태가 되면, 이 시간마다 이벤트를 쏜다.
@@ -33,6 +35,13 @@ namespace VKLib.VKLib.UI
         {
             Reset();
             FireEvent += () => FireUnityEvent?.Invoke();
+
+            //이벤트 매니저를 주입받지 못하기에, 우회함. 서플라이어가 반드시 씬에 있어야 한다.
+            //그래서 start에서 참조를 따는 것. 시점도 중요.
+            var eventManagerInjectSupplier = FindObjectOfType<EventManagerInjectSupplier>();
+            TDebug.AssertNotNull(eventManagerInjectSupplier, nameof(eventManagerInjectSupplier));
+            _eventManager = eventManagerInjectSupplier.EventManagerRef;
+            TDebug.AssertNotNull(_eventManager, nameof(_eventManager));
         }
 
         /// <summary>
@@ -42,6 +51,9 @@ namespace VKLib.VKLib.UI
         {
             if (pointerDown)
             {
+                //누르는 중임을 알림. 누르는 중에는 스크롤을 막아야 하므로. 
+                _eventManager.Notify_HoldableButtonDown();
+
                 fillImage.fillAmount = pointerDownTimer / requiredHoldTime;
                 pointerDownTimer += Time.deltaTime;
                 if (pointerDownTimer >= requiredHoldTime)

@@ -10,6 +10,8 @@ namespace VKLib.Native
     /// </summary>
     public class EventManager
     {
+
+
         #region Debug
 
         /// <summary>
@@ -431,6 +433,13 @@ namespace VKLib.Native
 
         #region input  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+
+        public event Action HoldableButtonDown;
+
+        public void Notify_HoldableButtonDown()
+        {
+            HoldableButtonDown?.Invoke();
+        }
         /// <summary>
         ///     유저의 특정 지점을 좌클릭 하였을 때.
         /// </summary>
