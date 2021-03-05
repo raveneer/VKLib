@@ -135,12 +135,13 @@ namespace VKLib.NativeExtension
 
     public static class DateTimeExtension
     {
-        public static float GetTotalSeconds(this DateTime time)
+        public static double GetTotalSeconds(this DateTime time)
         {
             var dtEnd = new DateTime();
             var elapsed = time - dtEnd;
 
-            return (float) elapsed.TotalSeconds;
+            return (double) elapsed.TotalSeconds;
         }
+        
     }
 }
