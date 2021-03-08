@@ -22,6 +22,7 @@ namespace VKLib.Network
             if (Application.isEditor)
             {
                 TDebug.Log($"{eventName} {key}  {value.ToString()} 아날리틱스 발동하였으나, 에디터 이므로 패스.");
+                return;
             }
 
             var res = Analytics.CustomEvent(eventName, new Dictionary<string, object>() {{key, value}});
