@@ -336,11 +336,11 @@ namespace VKLib.Native
             LoadGameToSlot?.Invoke(slotNumber);
         }
 
-        public event Action SaveGame;
+        public event Func<bool> SaveGame;
 
-        public void Notify_SaveGame()
+        public bool Notify_SaveGame()
         {
-            SaveGame?.Invoke();
+            return SaveGame.Invoke();
         }
 
         public event Action LoadGame;
