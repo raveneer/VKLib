@@ -63,8 +63,9 @@ namespace VKLib.Native
         public static void AssertNotNull([CanBeNull] object obj,  string paramName, [System.Runtime.CompilerServices.CallerMemberName] string caller = "",  string additionalInfo = "")
         {
             if (obj != null) return;
-            Log($"{paramName} is null! in {caller}() method");
-            throw new ArgumentNullException(paramName, additionalInfo);
+            var message = $"{paramName} is null! in {caller}() method, {additionalInfo}";
+            Log(message);
+            throw new ArgumentNullException(paramName, message);
         }
 
         public static void Log(string text)
