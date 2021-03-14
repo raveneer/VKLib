@@ -19,7 +19,7 @@ namespace VKLib.Native
             {
                 threshold += elem.Item1;
                 _frequents.Add((threshold, elem.Item2));
-                TDebug.Log($"added freq = {threshold}, {elem.Item2}");
+                //TDebug.Log($"added freq = {threshold}, {elem.Item2}");
             }
             _maxPercent = threshold;
         }
