@@ -36,6 +36,11 @@ namespace VKLib.NativeExtension
         {
             return (T) Enum.Parse(typeof(T), str);
         }
+
+        public static bool IsContainOnlyEngKorNum(this string str)
+        {
+            throw new NotFiniteNumberException();
+        }
     }
 
 }
