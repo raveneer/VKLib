@@ -23,4 +23,5 @@ namespace VKLib.NativeExtension
             return Enum.GetValues(typeof(T)).Cast<T>();
         }
     }
+    
 }

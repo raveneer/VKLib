@@ -142,6 +142,16 @@ namespace VKLib.NativeExtension
 
             return (double) elapsed.TotalSeconds;
         }
+
+        public static string ToYYMMFormat(this DateTime dt)
+        {
+            return dt.ToString("yyyyMMddHHmmss");
+        }
+
+        public static DateTime ToDateTimeByYYMM(this string yymm)
+        {
+            return  DateTime.ParseExact(yymm, "yyyyMMddHHmmss", System.Globalization.CultureInfo.InvariantCulture);
+        }
         
     }
 }
