@@ -27,6 +27,19 @@ namespace VKLib.NativeExtension
             for (var i = 0; i < list.Count; i++) list[i] = value;
         }
 
+        public static bool TryGetValue<T>(this IList<T> list, int index, out T found)
+        {
+            //index1일때, count는2는 되어야 함. 
+            if (list.Count <= index)
+            {
+                found = default;
+                return false;
+            }
+            found = list[index];
+            return true;
+        }
+
+
         public static T Random<T>(this IList<T> list, int start = 0)
         {
             return list[list.RandomIndex(start)];
