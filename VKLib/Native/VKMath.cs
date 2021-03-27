@@ -6,7 +6,13 @@ namespace VKLib.Native
     {
         public static float Lerp(float start, float end, float t)
         {
-            return start + t * (end - start); }
+            return start + t * (end - start);
+        }
+
+        public static double Lerp(double start, double end, float t)
+        {
+            return start + t * (end - start);
+        }
 
         public static float Progress(float current, float currentLvStart, float nextLvStart)
         {
