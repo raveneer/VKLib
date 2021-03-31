@@ -12,6 +12,18 @@ namespace VKLib.Native
         private readonly List<(float, T)> _frequents = new List<(float, T)>();
         private float _maxPercent;
 
+        public Frequency(List<(float freq, T elem)> elems)
+        {
+            var threshold = 0f;
+            foreach (var elem in elems)
+            {
+                threshold += elem.Item1;
+                _frequents.Add((threshold, elem.Item2));
+                //TDebug.Log($"added freq = {threshold}, {elem.Item2}");
+            }
+            _maxPercent = threshold;
+        }
+
         public Frequency(params (float, T)[] elems)
         {
             var threshold = 0f;
