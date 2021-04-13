@@ -340,6 +340,10 @@ namespace VKLib.Native
 
         public bool Notify_SaveGame()
         {
+            if (SaveGame == null)
+            {
+                return false;
+            }
             return SaveGame.Invoke();
         }
 
