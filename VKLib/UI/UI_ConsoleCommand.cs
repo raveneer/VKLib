@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using System.Linq;
-using ShopWars.UnityDependency;
 using TMPro;
 using UnityEngine;
 using VKLib.Native;
@@ -74,7 +73,6 @@ namespace VKLib.UI
             _commandIndex = _lastCommand.Count - 1;
             var executeResult = _eventManager.Raise_ConsoleTextInput(consoleText);
             AddLogTextAndPrint(executeResult);
-            _eventManager.Raise_PlaySoundUI(SoundNames.Positive);
         }
 
         private void AddLogTextAndPrint(string newLog)
