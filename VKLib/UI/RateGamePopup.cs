@@ -12,7 +12,7 @@ namespace VKLib.VKLib.UI
         public Sprite ActiveStar;
         public Button Button_close;
         public Button Button_Submit;
-        public List<Button> Buttons_Stars;
+        public List<Button> Buttons_Stars = new List<Button>();
         public Sprite DisabledStar;
         public string GooglePlayBundleID;
         public GameObject Panel;
@@ -51,6 +51,7 @@ namespace VKLib.VKLib.UI
 
         private void SetRate(int rate)
         {
+            TDebug.Log($"rate {rate}");
             _rate = rate;
             for (int j = 0; j < Stars.Count; j++)
             {
