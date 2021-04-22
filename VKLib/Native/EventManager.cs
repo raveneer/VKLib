@@ -910,11 +910,11 @@ namespace VKLib.Native
 
         #region RateGame
 
-        public event Action OpenRatePopup;
+        public event Action<Action> OpenRatePopup;
 
-        public void Notify_OpenRateGame()
+        public void Notify_OpenRateGame(Action onSubMit)
         {
-            OpenRatePopup?.Invoke();
+            OpenRatePopup?.Invoke(onSubMit);
         }
 
         #endregion

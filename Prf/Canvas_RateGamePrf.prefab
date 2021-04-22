@@ -691,13 +691,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ActiveStar: {fileID: 21300000, guid: 27c1896e7a37d0c42a3f3272fd1270b9, type: 3}
   Button_close: {fileID: 8976715025411076750}
+  Button_Rate1: {fileID: 8976715024756196185}
+  Button_Rate2: {fileID: 8976715025455273897}
+  Button_Rate3: {fileID: 8976715024728593199}
+  Button_Rate4: {fileID: 8976715025791575224}
+  Button_Rate5: {fileID: 8976715024950431964}
   Button_Submit: {fileID: 8976715024477096197}
-  Buttons_Stars:
-  - {fileID: 8976715024756196185}
-  - {fileID: 8976715025455273897}
-  - {fileID: 8976715024728593199}
-  - {fileID: 8976715025791575224}
-  - {fileID: 8976715024950431964}
   DisabledStar: {fileID: 21300000, guid: 56ae9ef8b2dc8b54cb3b0575efe4221a, type: 3}
   GooglePlayBundleID: com.VKGames.IljinClicker
   Panel: {fileID: 8976715025476593049}
