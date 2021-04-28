@@ -41,6 +41,16 @@ namespace VKLib.Native
             ToggleDebugConsole?.Invoke();
         }
 
+        
+        public event Action<string> ForceButtonDown;
+        /// <summary>
+        /// 씬에 배치된 특정 버튼을 강제로 누름 처리한다. 
+        /// </summary>
+        public void Notify_ForceButtonDown(string buttonName)
+        {
+            ForceButtonDown?.Invoke(buttonName);
+        }
+
         /// <summary>
         ///     VkglDebug
         /// </summary>
