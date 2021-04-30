@@ -631,11 +631,11 @@ namespace VKLib.Native
         /// <summary>
         ///     매우 중대한 입력이 필요할때 출력하는 노티파티 메시지. 화면을 가리고 게임을 멈추고 인풋창을 띄운다.
         /// </summary>
-        public event Action<string, Action<string>> InputMessagePopup;
+        public event Action<string, Action<string>,bool> InputMessagePopup;
 
-        public void Raise_InputMessagePopup(string message, Action<string> inputConfirmCallback)
+        public void Raise_InputMessagePopup(string message, Action<string> inputConfirmCallback, bool isLargeInputFiled = false)
         {
-            InputMessagePopup?.Invoke(message, inputConfirmCallback);
+            InputMessagePopup?.Invoke(message, inputConfirmCallback, isLargeInputFiled);
         }
 
         #endregion Notify - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
