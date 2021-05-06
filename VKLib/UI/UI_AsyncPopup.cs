@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -19,26 +20,27 @@ namespace VKLib.UI
         {
             _eventManager.AsyncPanelClose += OnAsyncPanelClose;
             _eventManager.AsyncPanelOpen += OnAsyncPanelOpen;
-            StartCoroutine(RollingLoadingImageRoutine());
             Panel.gameObject.SetActive(false);
         }
-
+        
         private void OnAsyncPanelOpen(string message)
         {
             TMP_Message.text = message;
             Panel.gameObject.SetActive(true);
+            StartCoroutine(RollingLoadingImageRoutine());
         }
 
         private void OnAsyncPanelClose()
         {
             Panel.gameObject.SetActive(false);
+            StopAllCoroutines();
         }
 
         private IEnumerator RollingLoadingImageRoutine()
         {
-            while (Panel.gameObject.activeInHierarchy)
+            while (true)
             {
-                Image_Loading.transform.Rotate(Vector3.forward, 6);
+                Image_Loading.transform.Rotate(Vector3.forward, -12);
                 yield return new WaitForSeconds(0.02f);
             }
         }
