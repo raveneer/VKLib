@@ -6,10 +6,10 @@ namespace VKLib.Native
     {
         private static readonly List<string> BadWords = new List<string>()
         {
-            "sex", "Sex", "SEX", "섹스", "섹쓰", "쎅쓰", "쎆쓰", "쎅스"
+            "sex", "Sex", "SEX", "섹스", "섹쓰", "쎅쓰", "쎆쓰", "쎅스", "자지", "보지", "새끼"
         };
 
-        public static bool IsNickContainsOnlyGoodWords(string nick, out string foundBadWord)
+        private static bool IsNickContainsOnlyGoodWords(string nick, out string foundBadWord)
         {
             foundBadWord = "";
             foreach (var bad in BadWords)
