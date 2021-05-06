@@ -428,6 +428,28 @@ namespace VKLib.Native
 
         #region Notify - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+        public event Action<string> AsyncPanelOpen;
+
+        /// <summary>
+        /// 비동기 처리중에 화면에 떠서 진행중임을 알린다.
+        /// </summary>
+        public void Notify_AsyncPanelOpen(string message)
+        {
+            AsyncPanelOpen?.Invoke(message);
+        }
+
+        public event Action AsyncPanelClose;
+
+        /// <summary>
+        /// 비동기 처리가 끝났을 때 화면을 가리는, 또는 알리는 창을 닫는다.
+        /// todo : 자동으로 처리되게 하면 좋을 것이다. 
+        /// </summary>
+        public void Notify_AsyncPanelClose()
+        {
+            AsyncPanelClose?.Invoke();
+        }
+
+
         /*
     public event Action<NotifyInfo> ShowNewNotify;
 
