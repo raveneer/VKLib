@@ -31,7 +31,7 @@ namespace VKLib.UI
         {
             Panel.gameObject.SetActive(true);
             TMP_Message.text = message;
-
+            InputField.text = ""; //초기화.
             Button_Confirm.onClick.RemoveAllListeners();
             Button_Confirm.onClick.AddListener(()=>
             {
