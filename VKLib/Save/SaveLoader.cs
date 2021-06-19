@@ -152,6 +152,7 @@ namespace VKLib
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
 
+        /*
         public async Task SaveDataToFileAsync(string savefileName)
         {
             //데이터를 준비하게 한다.
@@ -161,8 +162,9 @@ namespace VKLib
             //var backupFilePath = Tlib.GetZipBackupFilePath("lastSaveBackUp");
 
             _eventManager.Broadcast_Event_SaveDone();
-        }
+        }*/
 
+        /*
         public async Task SaveGameToSlotAsync(int slotNumber)
         {
             TDebug.Log("저장을 시도합니다.");
@@ -172,7 +174,7 @@ namespace VKLib
             {
                 TDebug.LogWarning("자동저장 슬롯에는 저장할 수 없습니다");
                 return;
-            }*/
+            }#1#
 
             //헤더의 정보 갱신.
             var newHeader = MakeThisGameHeader(slotNumber);
@@ -184,7 +186,7 @@ namespace VKLib
             SaveGameData(_dtoContainer, slotNumber);
 
             TDebug.Log("저장 완료.");
-        }
+        }*/
 
         private void CreateEmptySaveFileHeadersFileIfNotExist()
         {
