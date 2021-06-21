@@ -1,6 +1,6 @@
 ﻿using System;
 using UnityEngine;
-using UnityEngine.Advertisements;
+using GoogleMobileAds.Unity;
 using UnityEngine.SceneManagement;
 using VKLib.Native;
 using Zenject;
@@ -12,6 +12,7 @@ namespace VKLib.Network
     /// </summary>
     public class UnityAdManager : MonoBehaviour
     {
+        /*
         [Inject] private EventManager _eventManager;
         [Inject] private IADPolicy _iadPolicy;
         private Action _adFailedAction;
@@ -107,6 +108,7 @@ namespace VKLib.Network
                 TDebug.LogWarning("준비된 광고가 없습니다!");
             }
         }
+        */
 
 
     }
