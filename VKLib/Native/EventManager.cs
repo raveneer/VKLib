@@ -1,6 +1,5 @@
 using System;
 using System.Runtime.CompilerServices;
-using SoundManager;
 using UnityEngine;
 
 namespace VKLib.Native
@@ -693,14 +692,6 @@ namespace VKLib.Native
 
         #region Sound - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-        public event Func<string, Coord, float, float, float, SmSound> PlaySound;
-
-        public SmSound Raise_PlaySound(string soundName, Coord position, float percent = 1, float pitch = 1, float volume = 1)
-        {
-            return PlaySound?.Invoke(soundName, position, percent, pitch, volume);
-        }
-
-        
 
         public event Action<string, float> PlaySoundOneShot;
 
@@ -709,12 +700,6 @@ namespace VKLib.Native
              PlaySoundOneShot?.Invoke(soundName, volume);
         }
 
-        public event Func<string, float, float, float, SmSound> PlaySoundUI;
-
-        public SmSound Raise_PlaySoundUI(string soundName, float percent = 1, float pitch = 1, float volume = 1)
-        {
-            return PlaySoundUI?.Invoke(soundName, percent, pitch, volume);
-        }
 
         public event Action<float> AmbientVolumeChanged;
 
