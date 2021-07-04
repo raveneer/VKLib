@@ -1,4 +1,5 @@
-﻿using SyntaxTree.VisualStudio.Unity.Bridge;
+﻿#if UNITY_ANDROID
+using SyntaxTree.VisualStudio.Unity.Bridge;
 using UnityEditor;
 
 
@@ -20,3 +21,4 @@ public class ReferenceRemovalProjectHook {
         return content.Replace(temp, "");
     }
 }
+#endif
