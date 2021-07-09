@@ -135,6 +135,8 @@ namespace VKLib.NativeExtension
 
     public static class DateTimeExtension
     {
+        //예시 : 20210604010203
+
         public static double GetTotalSeconds(this DateTime time)
         {
             var dtEnd = new DateTime();
