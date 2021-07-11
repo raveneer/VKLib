@@ -1,9 +1,4 @@
-﻿using System;
-using UnityEngine;
-using GoogleMobileAds.Unity;
-using UnityEngine.SceneManagement;
-using VKLib.Native;
-using Zenject;
+﻿using UnityEngine;
 
 namespace VKLib.Network
 {
