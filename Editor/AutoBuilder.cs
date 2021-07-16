@@ -4,9 +4,9 @@ using UnityEditor;
 using UnityEditor.Build.Reporting;
 using UnityEngine;
 
-namespace VKLib
+namespace VKLib.Editor
 {
-    public class AutoBuilder : ScriptableObject
+    public static class AutoBuilder
     {
         private static readonly string[] SCENES = FindEnabledEditorScenes();
         public static string AppName;
