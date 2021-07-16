@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 using VKLib.Native;
 using Zenject;
 
@@ -13,6 +14,7 @@ namespace VKLib.UI
         public TMP_InputField InputField;
         public TextMeshProUGUI LogText;
         public GameObject Panel;
+        public Button Button_Close;
         private int _commandIndex;
         private readonly List<string> _lastCommand = new List<string>();
         private readonly int _logTextMaxLine = 5;
@@ -22,6 +24,7 @@ namespace VKLib.UI
         {
             InputField.onEndEdit.AddListener(OnInputText);
             _eventManager.ToggleDebugConsole += TogglePanel;
+            Button_Close.onClick.AddListener(() => _eventManager.Raise_ToggleDebugConsole());
         }
 
         private void Start()
