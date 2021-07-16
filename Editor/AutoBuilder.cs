@@ -39,7 +39,7 @@ namespace VKLib
         public static void BuildIOS()
         {
             TargetDir = GetArg("-buildFolder");
-            BuildNumber = GetArg("-BuildNumber");
+            BuildNumber = GetArg("-buildNumber");
             GitHash = GetArg("-gitHash");
 
             Debug.Log(" TARGET_DIR: " + TargetDir + " BuildNumber: " + BuildNumber + " GitHash: " + GitHash);
