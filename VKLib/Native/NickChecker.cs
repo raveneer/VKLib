@@ -6,7 +6,7 @@ namespace VKLib.Native
     {
         private static readonly List<string> BadWords = new List<string>()
         {
-            "sex", "Sex", "SEX", "섹스", "섹쓰", "쎅쓰", "쎆쓰", "쎅스", "자지", "보지", "새끼"
+            "sex", "Sex", "SEX", "섹스", "섹쓰", "쎅쓰", "쎆쓰", "쎅스", "자지", "보지", "새끼", "GM", "운영자", "지엠", "test", "TEST"
         };
 
         private static bool IsNickContainsOnlyGoodWords(string nick, out string foundBadWord)
